@@ -1,0 +1,41 @@
+
+/* ==============================
+   KEYBOARD ACCESSIBILITY
+================================= */
+
+/* Make keyboard focus clearly visible */
+:focus-visible {
+    outline: 3px solid #8B4A24;
+    outline-offset: 3px;
+}
+
+/* Highlight form fields containing validation errors */
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border: 2px solid #8B3027;
+}
+
+/* Provide comfortable minimum touch target sizes */
+button,
+input,
+select {
+    min-height: 44px;
+}
+
+/* Keep checkboxes and radio buttons at their normal size */
+input[type="checkbox"],
+input[type="radio"] {
+    min-height: auto;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

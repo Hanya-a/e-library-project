@@ -1,0 +1,1226 @@
+
+/* =========================================
+   GENERAL STYLES
+   Establishes the default layout, typography
+   and colours used throughout the application.
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-top: 72px;
+    width: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #26352D;
+    background: #F4F5F1;
+}
+
+/* Maintain consistent heading colours and spacing. */
+h1,
+h2,
+h3 {
+    color: #26352D;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================
+   HEADER
+   Keeps the application header visible while
+   navigating between library pages.
+========================================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 72px;
+    padding: 10px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background: #34483D;
+    color: #FFFFFF;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.header h1 {
+    font-size: 22px;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.header p {
+    font-size: 13px;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+/* Circular avatar displayed beside the welcome message. */
+.avatar {
+    background: #DCE5DD;
+    color: #26352D;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   NAVIGATION
+   Provides horizontal navigation between
+   the main sections of the library.
+========================================= */
+
+.sidebar {
+    background: #FFFFFF;
+    padding: 12px 20px;
+    border-bottom: 1px solid #718276;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.sidebar button {
+    background: transparent;
+    color: #34483D;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background: #E5EEE7;
+    color: #26352D;
+    border-color: #E5EEE7;
+}
+
+/* Visually identify the currently selected page. */
+.sidebar button[aria-current="page"] {
+    background: #34483D;
+    color: #FFFFFF;
+    border-color: #34483D;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+   Controls the width and spacing of page content.
+========================================= */
+
+main {
+    width: 100%;
+    min-width: 0;
+    padding: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.books-page {
+    width: 100%;
+    max-width: 1400px;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   FORMS AND INPUTS
+   Provides consistent form layouts and
+   clearly distinguishable input fields.
+========================================= */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+    min-width: 0;
+}
+
+/* Ensure every form label is clearly visible. */
+label {
+    font-weight: bold;
+    color: #26352D;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 11px;
+    border: 2px solid #718276;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #26352D;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Maintain readable placeholder text. */
+input::placeholder,
+textarea::placeholder {
+    color: #59675E;
+}
+
+/* Preserve the natural size of checkbox and radio controls. */
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    min-height: auto;
+}
+
+
+/* =========================================
+   BUTTONS
+   Defines consistent button appearance and
+   interaction states throughout the application.
+========================================= */
+
+button {
+    min-height: 44px;
+    max-width: 100%;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 2px solid #34483D;
+    background: #34483D;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #26352D;
+    border-color: #26352D;
+}
+
+/* Make disabled buttons visually distinguishable. */
+button:disabled {
+    background: #68766C;
+    border-color: #68766C;
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   KEYBOARD ACCESSIBILITY
+   Provides visible focus indicators and
+   identifies invalid form fields.
+========================================= */
+
+/* Make keyboard focus clearly visible. */
+:focus-visible {
+    outline: 3px solid #8B4A24;
+    outline-offset: 3px;
+}
+
+/* Highlight fields containing validation errors. */
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border: 2px solid #8B3027;
+}
+
+/* Hide content visually while keeping it available
+   to screen readers. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* =========================================
+   TABLES
+   Provides structured and readable presentation
+   of books, members and borrowing records.
+========================================= */
+
+.data-table {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Allow tables to scroll horizontally on small screens. */
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFFFF;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #718276;
+    text-align: left;
+}
+
+/* Distinguish column headings from table records. */
+th {
+    background: #34483D;
+    color: #FFFFFF;
+}
+
+/* Alternate row backgrounds to improve readability. */
+tbody tr:nth-child(even) {
+    background: #F0F3EF;
+}
+
+/* Display a clear message when no records are available. */
+.empty-table-message {
+    text-align: center;
+    padding: 24px;
+    color: #46564B;
+}
+
+
+/* =========================================
+   TABLE SEARCH AND FILTERS
+   Organises the search and filter controls.
+========================================= */
+
+.table-search,
+.table-filter {
+    margin-bottom: 16px;
+}
+
+.table-search label,
+.table-filter label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+
+/* =========================================
+   TABLE ACTION BUTTONS
+   Distinguishes Delete buttons from other
+   actions, including single-action rows.
+========================================= */
+
+.table-action-cell {
+    min-width: 150px;
+}
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.table-actions button {
+    min-height: 36px;
+    padding: 7px 13px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease;
+}
+
+/* Delete buttons use the danger variant in Button.jsx. */
+.table-actions button.danger {
+    background: #F9E8E6;
+    color: #8B3027;
+    border: 1px solid #A94438;
+}
+
+.table-actions button.danger:hover {
+    background: #F2D5D1;
+    border-color: #8B3027;
+}
+
+/* Preserve a clear keyboard focus indicator. */
+.table-actions button:focus-visible {
+    outline: 3px solid #8B4A24;
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   DASHBOARD
+   Uses a responsive grid to display library
+   statistics in individual cards.
+========================================= */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.stat-card {
+    min-width: 0;
+    background: #FFFFFF;
+    border: 1px solid #718276;
+    border-top: 4px solid #536F61;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-card h3,
+.stat-card p {
+    text-align: center;
+}
+
+.stat-card p {
+    color: #34483D;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+#overview-heading {
+    text-align: center;
+}
+
+
+/* =========================================
+   QUICK SUMMARY
+   Displays additional library information
+   using a clear card-based layout.
+========================================= */
+
+.quick-summary {
+    background: #FFFFFF;
+    border: 1px solid #718276;
+    border-left: 6px solid #536F61;
+    border-radius: 10px;
+    padding: 24px;
+    margin: 28px 0;
+}
+
+.quick-summary h2 {
+    color: #26352D;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.summary-intro {
+    color: #46564B;
+    margin-bottom: 20px;
+}
+
+.summary-items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.summary-item {
+    min-width: 0;
+    background: #F0F3EF;
+    border: 1px solid #718276;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.summary-label {
+    display: block;
+    color: #26352D;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.summary-item strong {
+    display: block;
+    color: #34483D;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.summary-item p {
+    color: #46564B;
+    margin: 0;
+}
+
+
+/* =========================================
+   NOTIFICATIONS
+   Provides visible feedback after user actions,
+   such as successfully adding or deleting records.
+========================================= */
+
+.notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    margin: 12px;
+    border-radius: 6px;
+    border: 2px solid;
+}
+
+.notification p {
+    margin: 0;
+}
+
+/* Success notification styling. */
+.notification.success {
+    background: #E5EEE7;
+    color: #26352D;
+    border-color: #536F61;
+}
+
+/* Error notification styling. */
+.notification.error {
+    background: #F9E8E6;
+    color: #8B3027;
+    border-color: #A94438;
+}
+
+/* Keep validation messages visually distinguishable. */
+.error {
+    color: #8B3027;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   LINKS
+   Keeps links visibly distinguishable from
+   surrounding text.
+========================================= */
+
+a {
+    color: #34483D;
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   SIGN-IN PAGE
+   Centres the sign-in form and provides a
+   consistent layout across screen sizes.
+========================================= */
+
+.signin-container {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.signin-form {
+    width: 100%;
+    max-width: 420px;
+    background: #FFFFFF;
+    padding: 32px;
+    border: 1px solid #718276;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(38, 53, 45, 0.10);
+}
+
+.signin-form h1,
+.signin-form h2 {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.signin-form input {
+    width: 100%;
+}
+
+.signin-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.signin-buttons button {
+    width: 100%;
+}
+
+
+/* =========================================
+   BOOKS, MEMBERS AND BORROWINGS
+   Shared layout styles for record management
+   pages.
+========================================= */
+
+.books-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.books-page-header h1 {
+    margin: 0;
+}
+
+.books-table-section {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================
+   TABLE HEADINGS
+   Controls spacing above table sections.
+========================================= */
+
+.table-heading {
+    margin: 20px 0 12px;
+}
+
+.table-heading h2 {
+    margin: 0;
+}
+
+
+/* =========================================
+   SEARCH, FILTER AND ADD TOOLBAR
+   Positions search and filter controls together
+   and keeps the add action on the right.
+========================================= */
+
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    gap: 20px;
+    margin: 16px 0 24px;
+}
+
+.search-filter-left {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.search-filter-left .input-group {
+    flex: 1;
+    width: 350px;
+    max-width: 500px;
+    min-width: 220px;
+    margin: 0;
+}
+
+.search-filter-left input {
+    width: 100%;
+}
+
+.search-filter-right {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.search-filter-container button {
+    min-height: 44px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   BOOK MODAL
+   Provides an overlay and scrollable dialog
+   for adding and editing library records.
+========================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(25, 35, 29, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1100;
+}
+
+.book-modal {
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 550px;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
+}
+
+.book-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.book-modal-header h2 {
+    margin: 0;
+}
+
+/* Style the close control while retaining keyboard focus visibility. */
+.modal-close {
+    background: transparent;
+    color: #26352D;
+    border: 2px solid transparent;
+    font-size: 28px;
+    padding: 4px 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.modal-close:hover {
+    background: #E5EEE7;
+    color: #26352D;
+    border-color: #536F61;
+}
+
+
+/* =========================================
+   BOOK FORM
+   Organises form fields into two columns
+   on larger screens.
+========================================= */
+
+.book-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.book-form .input-group {
+    margin-bottom: 0;
+}
+
+.modal-checkbox {
+    grid-column: 1 / -1;
+}
+
+.modal-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-checkbox input {
+    width: auto;
+    min-height: auto;
+}
+
+
+/* =========================================
+   SHARED MODAL FORMS
+   Reusable layout for member and borrowing forms.
+========================================= */
+
+.app-modal-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.app-modal-form .input-group {
+    margin-bottom: 0;
+}
+
+.app-modal-form .modal-actions {
+    grid-column: 1 / -1;
+}
+
+/* Highlights information about the selected member. */
+.selected-member {
+    grid-column: 1 / -1;
+    background: #F0F3EF;
+    border: 1px solid #718276;
+    border-left: 4px solid #536F61;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.selected-member h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.selected-member p {
+    margin: 6px 0;
+}
+
+.app-modal-form > .error {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   MODAL ACTIONS
+   Groups form submission and cancellation
+   buttons together.
+========================================= */
+
+.modal-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+
+/* =========================================
+   FILTER MODAL
+   Displays filter controls in a single column.
+========================================= */
+
+.filter-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.filter-form .input-group {
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   Adjusts layouts for tablets, phones and
+   smaller screens using media queries.
+========================================= */
+
+/* Tablets and smaller laptops. */
+@media (max-width: 1024px) {
+    main {
+        padding: 20px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .summary-items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .search-filter-left .input-group {
+        width: 300px;
+    }
+}
+
+
+/* Tablets and large phones. */
+@media (max-width: 768px) {
+    main {
+        padding: 16px;
+    }
+
+    .header {
+        padding: 10px 16px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .sidebar {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .sidebar button {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .summary-items {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-summary {
+        padding: 18px;
+    }
+
+    .search-filter-left .input-group {
+        width: 260px;
+    }
+
+    .book-modal {
+        max-width: 95%;
+    }
+}
+
+
+/* Phones. */
+@media (max-width: 600px) {
+    body {
+        padding-top: 64px;
+    }
+
+    .header {
+        min-height: 64px;
+        padding: 8px 12px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .header p {
+        font-size: 12px;
+    }
+
+    .header-left {
+        gap: 8px;
+    }
+
+    .avatar {
+        width: 34px;
+        height: 34px;
+    }
+
+    main {
+        padding: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .books-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 14px 10px;
+    }
+
+    .stat-card p {
+        font-size: 24px;
+    }
+
+    .summary-items {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-item {
+        padding: 16px;
+    }
+
+    .summary-item strong {
+        font-size: 26px;
+    }
+
+    /* Stack the toolbar while keeping search and filter together. */
+    .search-filter-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .search-filter-left {
+        display: flex;
+        width: 100%;
+        min-width: 0;
+        gap: 8px;
+        align-items: flex-end;
+    }
+
+    .search-filter-left .input-group {
+        flex: 1;
+        width: auto;
+        max-width: none;
+        min-width: 0;
+    }
+
+    .search-filter-left button {
+        flex-shrink: 0;
+    }
+
+    .search-filter-right {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .search-filter-right button {
+        width: 100%;
+    }
+
+    /* Adjust forms and modals for narrow screens. */
+    .book-modal {
+        width: 100%;
+        max-width: 100%;
+        max-height: 90vh;
+        max-height: 90dvh;
+        padding: 18px;
+    }
+
+    .book-form,
+    .app-modal-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .modal-checkbox,
+    .book-form .modal-actions,
+    .app-modal-form .modal-actions,
+    .selected-member,
+    .app-modal-form > .error {
+        grid-column: 1;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+
+    .signin-container {
+        min-height: calc(100vh - 64px);
+        min-height: calc(100dvh - 64px);
+        padding: 16px;
+    }
+
+    .signin-form {
+        padding: 22px;
+    }
+
+    /* Preserve table readability using horizontal scrolling. */
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        white-space: nowrap;
+    }
+
+    .table-actions {
+        gap: 6px;
+        flex-wrap: nowrap;
+    }
+
+    .table-actions button {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+
+    .table-action-cell {
+        min-width: 140px;
+    }
+
+    .notification {
+        margin: 10px 0;
+    }
+}
+
+
+/* Very small phones. */
+@media (max-width: 400px) {
+    main {
+        padding: 12px;
+    }
+
+    .header h1 {
+        font-size: 16px;
+    }
+
+    .header p {
+        font-size: 11px;
+    }
+
+    .sidebar {
+        padding: 8px;
+        gap: 6px;
+    }
+
+    .sidebar button {
+        padding: 9px 10px;
+        font-size: 13px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-summary {
+        padding: 14px;
+    }
+
+    .search-filter-left {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-filter-left .input-group {
+        width: 100%;
+    }
+
+    .search-filter-left button {
+        width: 100%;
+    }
+
+    .signin-form {
+        padding: 18px;
+    }
+
+    .book-modal {
+        padding: 14px;
+    }
+
+    .book-modal-header {
+        gap: 8px;
+    }
+
+    .book-modal-header h2 {
+        font-size: 18px;
+    }
+}
+
+
+/* Extra-small screens. */
+@media (max-width: 340px) {
+    main {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 8px;
+    }
+
+    .header h1 {
+        font-size: 15px;
+    }
+
+    .sidebar button {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .stat-card {
+        padding: 12px 8px;
+    }
+
+    .signin-form {
+        padding: 14px;
+    }
+
+    button {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+   Respects users who prefer reduced animation
+   and movement in their device settings.
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

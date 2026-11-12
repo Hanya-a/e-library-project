@@ -1,0 +1,23 @@
+# Environment variables and secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Django database
+db.sqlite3
+
+# React
+node_modules/
+dist/
+
+# IDE
+.idea/
+.vscode/
+
+# Collected static files
+staticfiles/
