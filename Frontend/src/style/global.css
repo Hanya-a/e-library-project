@@ -11,7 +11,6 @@
 
 html {
     width: 100%;
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -20,7 +19,6 @@ body {
     padding-top: 72px;
     width: 100%;
     min-width: 320px;
-    overflow-x: hidden;
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -51,8 +49,6 @@ img {
 
 /* =========================================
    HEADER
-   Keeps the application header visible while
-   navigating between library pages.
 ========================================= */
 
 .header {
@@ -91,7 +87,6 @@ img {
     min-width: 0;
 }
 
-/* Circular avatar displayed beside the welcome message. */
 .avatar {
     background: #DCE5DD;
     color: #26352D;
@@ -108,8 +103,6 @@ img {
 
 /* =========================================
    NAVIGATION
-   Provides horizontal navigation between
-   the main sections of the library.
 ========================================= */
 
 .sidebar {
@@ -140,7 +133,6 @@ img {
     border-color: #E5EEE7;
 }
 
-/* Visually identify the currently selected page. */
 .sidebar button[aria-current="page"] {
     background: #34483D;
     color: #FFFFFF;
@@ -151,7 +143,6 @@ img {
 
 /* =========================================
    MAIN CONTENT
-   Controls the width and spacing of page content.
 ========================================= */
 
 main {
@@ -172,8 +163,6 @@ main {
 
 /* =========================================
    FORMS AND INPUTS
-   Provides consistent form layouts and
-   clearly distinguishable input fields.
 ========================================= */
 
 .input-group {
@@ -184,7 +173,6 @@ main {
     min-width: 0;
 }
 
-/* Ensure every form label is clearly visible. */
 label {
     font-weight: bold;
     color: #26352D;
@@ -209,13 +197,11 @@ textarea {
     resize: vertical;
 }
 
-/* Maintain readable placeholder text. */
 input::placeholder,
 textarea::placeholder {
     color: #59675E;
 }
 
-/* Preserve the natural size of checkbox and radio controls. */
 input[type="checkbox"],
 input[type="radio"] {
     width: auto;
@@ -225,8 +211,6 @@ input[type="radio"] {
 
 /* =========================================
    BUTTONS
-   Defines consistent button appearance and
-   interaction states throughout the application.
 ========================================= */
 
 button {
@@ -247,7 +231,6 @@ button:hover {
     border-color: #26352D;
 }
 
-/* Make disabled buttons visually distinguishable. */
 button:disabled {
     background: #68766C;
     border-color: #68766C;
@@ -257,25 +240,19 @@ button:disabled {
 
 /* =========================================
    KEYBOARD ACCESSIBILITY
-   Provides visible focus indicators and
-   identifies invalid form fields.
 ========================================= */
 
-/* Make keyboard focus clearly visible. */
 :focus-visible {
     outline: 3px solid #8B4A24;
     outline-offset: 3px;
 }
 
-/* Highlight fields containing validation errors. */
 input[aria-invalid="true"],
 select[aria-invalid="true"],
 textarea[aria-invalid="true"] {
     border: 2px solid #8B3027;
 }
 
-/* Hide content visually while keeping it available
-   to screen readers. */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -291,8 +268,6 @@ textarea[aria-invalid="true"] {
 
 /* =========================================
    TABLES
-   Provides structured and readable presentation
-   of books, members and borrowing records.
 ========================================= */
 
 .data-table {
@@ -300,7 +275,6 @@ textarea[aria-invalid="true"] {
     min-width: 0;
 }
 
-/* Allow tables to scroll horizontally on small screens. */
 .table-container {
     width: 100%;
     max-width: 100%;
@@ -322,18 +296,15 @@ td {
     text-align: left;
 }
 
-/* Distinguish column headings from table records. */
 th {
     background: #34483D;
     color: #FFFFFF;
 }
 
-/* Alternate row backgrounds to improve readability. */
 tbody tr:nth-child(even) {
     background: #F0F3EF;
 }
 
-/* Display a clear message when no records are available. */
 .empty-table-message {
     text-align: center;
     padding: 24px;
@@ -343,7 +314,6 @@ tbody tr:nth-child(even) {
 
 /* =========================================
    TABLE SEARCH AND FILTERS
-   Organises the search and filter controls.
 ========================================= */
 
 .table-search,
@@ -360,8 +330,6 @@ tbody tr:nth-child(even) {
 
 /* =========================================
    TABLE ACTION BUTTONS
-   Distinguishes Delete buttons from other
-   actions, including single-action rows.
 ========================================= */
 
 .table-action-cell {
@@ -387,7 +355,6 @@ tbody tr:nth-child(even) {
                 border-color 0.2s ease;
 }
 
-/* Delete buttons use the danger variant in Button.jsx. */
 .table-actions button.danger {
     background: #F9E8E6;
     color: #8B3027;
@@ -399,7 +366,6 @@ tbody tr:nth-child(even) {
     border-color: #8B3027;
 }
 
-/* Preserve a clear keyboard focus indicator. */
 .table-actions button:focus-visible {
     outline: 3px solid #8B4A24;
     outline-offset: 3px;
@@ -408,8 +374,6 @@ tbody tr:nth-child(even) {
 
 /* =========================================
    DASHBOARD
-   Uses a responsive grid to display library
-   statistics in individual cards.
 ========================================= */
 
 .dashboard-stats {
@@ -429,15 +393,15 @@ tbody tr:nth-child(even) {
 }
 
 .stat-card h3,
-.stat-card p {
+.stat-card .stat-value {
     text-align: center;
 }
 
-.stat-card p {
+.stat-card .stat-value {
+    display: block;
     color: #34483D;
     font-size: 28px;
     font-weight: bold;
-    margin-bottom: 0;
 }
 
 #overview-heading {
@@ -447,8 +411,6 @@ tbody tr:nth-child(even) {
 
 /* =========================================
    QUICK SUMMARY
-   Displays additional library information
-   using a clear card-based layout.
 ========================================= */
 
 .quick-summary {
@@ -488,8 +450,9 @@ tbody tr:nth-child(even) {
 .summary-label {
     display: block;
     color: #26352D;
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin: 0 0 8px;
 }
 
 .summary-item strong {
@@ -507,8 +470,6 @@ tbody tr:nth-child(even) {
 
 /* =========================================
    NOTIFICATIONS
-   Provides visible feedback after user actions,
-   such as successfully adding or deleting records.
 ========================================= */
 
 .notification {
@@ -526,21 +487,18 @@ tbody tr:nth-child(even) {
     margin: 0;
 }
 
-/* Success notification styling. */
 .notification.success {
     background: #E5EEE7;
     color: #26352D;
     border-color: #536F61;
 }
 
-/* Error notification styling. */
 .notification.error {
     background: #F9E8E6;
     color: #8B3027;
     border-color: #A94438;
 }
 
-/* Keep validation messages visually distinguishable. */
 .error {
     color: #8B3027;
     font-weight: bold;
@@ -549,8 +507,6 @@ tbody tr:nth-child(even) {
 
 /* =========================================
    LINKS
-   Keeps links visibly distinguishable from
-   surrounding text.
 ========================================= */
 
 a {
@@ -561,8 +517,6 @@ a {
 
 /* =========================================
    SIGN-IN PAGE
-   Centres the sign-in form and provides a
-   consistent layout across screen sizes.
 ========================================= */
 
 .signin-container {
@@ -607,8 +561,6 @@ a {
 
 /* =========================================
    BOOKS, MEMBERS AND BORROWINGS
-   Shared layout styles for record management
-   pages.
 ========================================= */
 
 .books-page-header {
@@ -631,7 +583,6 @@ a {
 
 /* =========================================
    TABLE HEADINGS
-   Controls spacing above table sections.
 ========================================= */
 
 .table-heading {
@@ -645,8 +596,6 @@ a {
 
 /* =========================================
    SEARCH, FILTER AND ADD TOOLBAR
-   Positions search and filter controls together
-   and keeps the add action on the right.
 ========================================= */
 
 .search-filter-container {
@@ -695,8 +644,6 @@ a {
 
 /* =========================================
    BOOK MODAL
-   Provides an overlay and scrollable dialog
-   for adding and editing library records.
 ========================================= */
 
 .modal-overlay {
@@ -734,7 +681,6 @@ a {
     margin: 0;
 }
 
-/* Style the close control while retaining keyboard focus visibility. */
 .modal-close {
     background: transparent;
     color: #26352D;
@@ -754,8 +700,6 @@ a {
 
 /* =========================================
    BOOK FORM
-   Organises form fields into two columns
-   on larger screens.
 ========================================= */
 
 .book-form {
@@ -786,7 +730,6 @@ a {
 
 /* =========================================
    SHARED MODAL FORMS
-   Reusable layout for member and borrowing forms.
 ========================================= */
 
 .app-modal-form {
@@ -803,7 +746,6 @@ a {
     grid-column: 1 / -1;
 }
 
-/* Highlights information about the selected member. */
 .selected-member {
     grid-column: 1 / -1;
     background: #F0F3EF;
@@ -829,8 +771,6 @@ a {
 
 /* =========================================
    MODAL ACTIONS
-   Groups form submission and cancellation
-   buttons together.
 ========================================= */
 
 .modal-actions {
@@ -844,7 +784,6 @@ a {
 
 /* =========================================
    FILTER MODAL
-   Displays filter controls in a single column.
 ========================================= */
 
 .filter-form {
@@ -860,8 +799,6 @@ a {
 
 /* =========================================
    RESPONSIVE DESIGN
-   Adjusts layouts for tablets, phones and
-   smaller screens using media queries.
 ========================================= */
 
 /* Tablets and smaller laptops. */
@@ -981,7 +918,7 @@ a {
         padding: 14px 10px;
     }
 
-    .stat-card p {
+    .stat-card .stat-value {
         font-size: 24px;
     }
 
@@ -997,7 +934,6 @@ a {
         font-size: 26px;
     }
 
-    /* Stack the toolbar while keeping search and filter together. */
     .search-filter-container {
         flex-direction: column;
         align-items: stretch;
@@ -1032,7 +968,6 @@ a {
         width: 100%;
     }
 
-    /* Adjust forms and modals for narrow screens. */
     .book-modal {
         width: 100%;
         max-width: 100%;
@@ -1074,7 +1009,6 @@ a {
         padding: 22px;
     }
 
-    /* Preserve table readability using horizontal scrolling. */
     .table-container {
         width: 100%;
         overflow-x: auto;
@@ -1210,8 +1144,6 @@ a {
 
 /* =========================================
    REDUCED MOTION
-   Respects users who prefer reduced animation
-   and movement in their device settings.
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Button from "../components/Button";
 
 import {
@@ -13,11 +13,11 @@ function Dashboard() {
     const [members, setMembers] = useState([]);
     const [borrowings, setBorrowings] = useState([]);
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     // Fetch dashboard information from the backend
-    async function fetchDashboardData() {
+    const fetchDashboardData = useCallback(async () => {
         setLoading(true);
         setError("");
 
@@ -46,11 +46,15 @@ function Dashboard() {
 
             // Support both normal arrays and paginated API responses
             setBooks(
-                Array.isArray(booksData) ? booksData : booksData.results || []
+                Array.isArray(booksData)
+                    ? booksData
+                    : booksData.results || []
             );
 
             setMembers(
-                Array.isArray(membersData) ? membersData : membersData.results || []
+                Array.isArray(membersData)
+                    ? membersData
+                    : membersData.results || []
             );
 
             setBorrowings(
@@ -60,16 +64,18 @@ function Dashboard() {
             );
 
         } catch (error) {
-            setError(error.message);
+            setError(
+                error.message || "Something went wrong while loading the dashboard."
+            );
         } finally {
             setLoading(false);
         }
-    }
+    }, []);
 
     // Load dashboard information when the component first appears
     useEffect(() => {
         fetchDashboardData();
-    }, []);
+    }, [fetchDashboardData]);
 
     // Calculate the total number of registered books
     const totalBooks = books.length;
@@ -121,22 +127,30 @@ function Dashboard() {
 
                             <article className="stat-card">
                                 <h3>Total Books</h3>
-                                <p>{totalBooks}</p>
+                                <span className="stat-value">
+                                    {totalBooks}
+                                </span>
                             </article>
 
                             <article className="stat-card">
                                 <h3>Available Books</h3>
-                                <p>{availableBooks}</p>
+                                <span className="stat-value">
+                                    {availableBooks}
+                                </span>
                             </article>
 
                             <article className="stat-card">
                                 <h3>Total Members</h3>
-                                <p>{totalMembers}</p>
+                                <span className="stat-value">
+                                    {totalMembers}
+                                </span>
                             </article>
 
                             <article className="stat-card">
                                 <h3>Active Borrowings</h3>
-                                <p>{activeBorrowings}</p>
+                                <span className="stat-value">
+                                    {activeBorrowings}
+                                </span>
                             </article>
 
                         </div>
@@ -158,9 +172,9 @@ function Dashboard() {
                         <div className="summary-items">
 
                             <article className="summary-item">
-                                <span className="summary-label">
+                                <h3 className="summary-label">
                                     Registered Books
-                                </span>
+                                </h3>
 
                                 <strong>{totalBooks}</strong>
 
@@ -168,9 +182,9 @@ function Dashboard() {
                             </article>
 
                             <article className="summary-item">
-                                <span className="summary-label">
+                                <h3 className="summary-label">
                                     Available Books
-                                </span>
+                                </h3>
 
                                 <strong>{availableBooks}</strong>
 
@@ -178,9 +192,9 @@ function Dashboard() {
                             </article>
 
                             <article className="summary-item">
-                                <span className="summary-label">
+                                <h3 className="summary-label">
                                     Active Borrowings
-                                </span>
+                                </h3>
 
                                 <strong>{activeBorrowings}</strong>
 
